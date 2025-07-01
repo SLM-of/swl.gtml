@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SWL.org</title>
+  <link rel="icon" type="image/png" href="https://images.icon-icons.com/4080/PNG/512/halloween_scary_vampire_bat_bird_icon_259057.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-image: url("https://www.solidbackgrounds.com/images/2560x1440/2560x1440-bleu-de-france-solid-color-background.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    h1 {
+      font-family: "Arial Black", sans-serif;
+      color: black;
+      margin: 0;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    .nav-container a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .nav-container a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: black;
+      transition: width 0.4s ease;
+    }
+
+    .nav-container a:hover::after {
+      width: 100%;
+    }
+
+    .user-icon {
+      font-size: 22px;
+      color: black;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .user-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      z-index: 10;
+    }
+
+    .user-menu a {
+      display: block;
+      color: black;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    .user-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    section#telechargements {
+      text-align: center;
+      padding: 100px 20px;
+      background-color: rgba(255,255,255,0.8);
+      margin: 80px auto;
+      width: 60%;
+      border-radius: 10px;
+    }
+
+    section#telechargements a {
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      border: 2px solid black;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    section#telechargements a:hover {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SWL</h1>
+    <div class="nav-container">
+      <a href="#telechargements">Téléchargements</a>
+      <a href="#aide">Aide</a>
+      <a href="#forum">Forum</a>
+      <div class="user-icon" onclick="toggleMenu()">
+        <i class="fas fa-user"></i>
+        <div class="user-menu" id="userMenu">
+          <a href="#">Se connecter</a>
+          <a href="#">Créer un compte</a>
+          <a href="#">Profil</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 📥 Section téléchargements -->
+  <section id="telechargements">
+    <h2 style="font-family: Arial Black; color: black;">Téléchargement</h2>
+    <p style="font-size: 18px; color: black;">
+      Veuillez telecharger ce code puis de l'executer dans un IDE tel que IDLE :
+    </p>
+    <a href="TEST.py" download>📎 Télécharger SWL1.0</a>
+    <a href="game.py" download>📎 Télécharger SWL1.1</a>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("userMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    window.addEventListener("click", function(e) {
+      const menu = document.getElementById("userMenu");
+      const icon = document.querySelector(".user-icon");
+      if (!icon.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
